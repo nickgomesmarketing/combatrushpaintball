@@ -1,13 +1,11 @@
 /*
- * Efeito de tiros de paintball · Combat Rush
+ * Tiro de paintball · Combat Rush
  *
- * 1. Tiro de abertura: a bolinha sai do cano da arma da foto principal,
- *    vem na direção de quem está lendo e estoura na tela.
- * 2. Tiros ao rolar: conforme a pessoa desce a página, algumas bolinhas
- *    estouram na "tela", escorregam um pouco e somem sozinhas.
- * 3. Clique na área principal (cursor de mira) também dispara.
+ * Ao abrir o site, a bolinha sai do cano da arma da foto principal,
+ * vem na direção de quem está lendo e estoura na tela (uma vez só).
+ * No celular, o tiro sai quando o cano aparece na tela ao rolar.
  *
- * Nada disso bloqueia cliques (pointer-events: none) e tudo é desligado
+ * Não bloqueia cliques (pointer-events: none) e fica desligado
  * para quem pediu "menos movimento" no sistema.
  */
 (function () {
@@ -34,8 +32,8 @@
   var st = document.createElement('style');
   st.textContent =
     '.crfx{position:fixed;left:0;top:0;pointer-events:none;z-index:9000;will-change:transform,opacity}' +
-    '.crfx-splat{transform:translate(-50%,-50%);animation:crfx-hit .3s cubic-bezier(.18,1.45,.4,1) both;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}' +
-    '.crfx-splat.crfx-out{transition:opacity .9s ease;opacity:0}' +
+    '.crfx-splat{transform:translate(-50%,-50%);animation:crfx-hit .24s cubic-bezier(.18,1.45,.4,1) both;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}' +
+    '.crfx-splat.crfx-out{transition:opacity .7s ease;opacity:0}' +
     '@keyframes crfx-hit{0%{transform:translate(-50%,-50%) scale(.25);opacity:0}' +
     '35%{opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}' +
     '.crfx-ball{border-radius:50%;transform:translate(-50%,-50%)}' +
@@ -54,7 +52,7 @@
     { src: 'respingos/blue-b.webp', color: '#0068F7', tilt: 180 }
   ];
   var lastIdx = -1;
-  function preload() { SPLATS.forEach(function (sp) { var i = new Image(); i.src = sp.src; }); }
+  function preload() { var i = new Image(); i.src = SPLATS[3].src; } // só a laranja é usada no tiro
   function randomSplat() {
     var i;
     do { i = Math.floor(Math.random() * SPLATS.length); } while (i === lastIdx);
@@ -90,7 +88,7 @@
     ], { duration: stay + 900, delay: 300, easing: 'cubic-bezier(.5,0,.9,.6)', fill: 'forwards' });
     setTimeout(function () {
       wrap.classList.add('crfx-out');
-      setTimeout(function () { wrap.remove(); live--; }, 950);
+      setTimeout(function () { wrap.remove(); live--; }, 750);
     }, stay);
   }
 
@@ -125,7 +123,7 @@
     p.animate([
       { transform: 'translate(-50%,-50%) scale(.2)', opacity: 1 },
       { transform: 'translate(-50%,-50%) scale(2.6)', opacity: 0 }
-    ], { duration: 320, easing: 'ease-out', fill: 'forwards' }).onfinish = function () { p.remove(); };
+    ], { duration: 260, easing: 'ease-out', fill: 'forwards' }).onfinish = function () { p.remove(); };
   }
 
   // Onde está a ponta do cano agora, na tela (considera recorte e rotação da foto)
@@ -169,53 +167,26 @@
     var margin = Math.min(size * 0.38, window.innerWidth / 2);
     tx = Math.max(margin, Math.min(window.innerWidth - margin, tx));
     puff(m.x, m.y);
-    incoming(m.x, m.y, tx, ty, color, 420, function () {
-      splat(tx, ty, { splat: sp, size: size, stay: 2800, rotate: rnd(-10, 10), flip: tx > m.x });
+    incoming(m.x, m.y, tx, ty, color, 320, function () {
+      splat(tx, ty, { splat: sp, size: size, stay: 2200, rotate: rnd(-10, 10), flip: tx > m.x });
     });
   }
-
-  // ---------- 2. tiros ao longo da leitura ----------
-  var shotsAtScroll = [0.9, 2.1, 3.4, 4.8, 6.4, 8.2, 10.2];
-  var nextShot = 0, maxDepth = 0, lastShot = 0;
-  function randomScreenShot() {
-    var w = window.innerWidth, h = window.innerHeight, x;
-    if (isMobile()) x = rnd(0.12, 0.88) * w;
-    else x = Math.random() < 0.5 ? rnd(0.04, 0.2) * w : rnd(0.8, 0.96) * w; // nas laterais, longe do texto
-    var y = rnd(0.22, 0.72) * h;
-    var sp = randomSplat();
-    incoming(x + rnd(-40, 40), y + rnd(-40, 40), x, y, sp.color, 170, function () {
-      splat(x, y, { splat: sp, size: isMobile() ? rnd(150, 200) : rnd(210, 300), stay: isMobile() ? 1500 : 1900 });
-    });
-  }
-  function onScroll() {
-    if (!openingDone) openingShot();
-    var depth = window.scrollY / window.innerHeight;
-    if (depth <= maxDepth) return;
-    maxDepth = depth;
-    var limit = isMobile() ? 4 : shotsAtScroll.length;
-    if (nextShot < limit && depth >= shotsAtScroll[nextShot] && Date.now() - lastShot > 2500) {
-      nextShot++;
-      lastShot = Date.now();
-      setTimeout(randomScreenShot, 200);
-    }
-  }
-
-  // ---------- 3. clique na área principal ----------
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest || !e.target.closest('.cr-hero')) return;
-    if (e.target.closest('a,button,input,select,textarea,label')) return;
-    splat(e.clientX, e.clientY, { size: isMobile() ? 150 : 200, stay: 1500 });
-  });
 
   function start() {
+    preload();
+    setTimeout(openingShot, 600);
+    // no celular a foto fica mais abaixo: o tiro sai quando o cano aparece na tela
     var ticking = false;
-    window.addEventListener('scroll', function () {
+    function onScroll() {
+      if (openingDone) { window.removeEventListener('scroll', onScrollRaf); return; }
+      openingShot();
+    }
+    function onScrollRaf() {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(function () { ticking = false; onScroll(); });
-    }, { passive: true });
-    preload();
-    setTimeout(openingShot, 900);
+    }
+    window.addEventListener('scroll', onScrollRaf, { passive: true });
   }
 
   if (document.readyState === 'complete') start();
