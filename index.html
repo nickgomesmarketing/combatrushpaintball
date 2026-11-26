@@ -41,6 +41,27 @@ section[id]{scroll-margin-top:84px}
 @media (max-width: 560px){.cr-gal{grid-template-columns:1fr;grid-auto-rows:250px}.cr-gal .cr-big,.cr-gal .cr-wide{grid-column:auto;grid-row:auto}.cr-gal .cr-tall{grid-row:span 2}}
 @media (max-width: 1180px){.cr-burger{display:inline-flex !important}}
 @media (max-width: 480px){.cr-logo{height:44px !important}.cr-cta-top{padding:10px 14px !important;font-size:14px !important}}
+
+.cr-footer{background:#000A16;border-top:1px solid #13243F}
+.cr-foot-grid{max-width:1200px;margin:0 auto;padding:60px 24px 44px;display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:48px}
+.cr-foot-brand p{margin:18px 0 22px;color:#9EA3C4;font-size:15px;line-height:1.6;max-width:340px}
+.cr-foot-title{margin:0 0 18px !important;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EE7F0C}
+.cr-foot-links{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cr-foot-nav{grid-template-columns:1fr 1fr;column-gap:24px}
+.cr-foot-links a{color:#C3C6DE;text-decoration:none;font-size:15px;transition:color .15s ease}
+.cr-foot-links a:hover{color:#EE7F0C}
+.cr-foot-contact a{display:flex;align-items:flex-start;gap:10px}
+.cr-foot-contact svg{flex:none;margin-top:3px;color:#EE7F0C}
+.cr-foot-social{display:flex;gap:10px}
+.cr-foot-social a{width:42px;height:42px;border-radius:50%;border:1px solid #1F3158;display:inline-flex;align-items:center;justify-content:center;color:#C3C6DE;transition:color .15s ease,border-color .15s ease,transform .15s ease}
+.cr-foot-social a:hover{color:#EE7F0C;border-color:#EE7F0C;transform:translateY(-2px)}
+.cr-foot-cta{display:inline-block;margin-top:24px;background:#EE7F0C;color:#000C1A !important;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:18px;padding:12px 22px;border-radius:10px}
+.cr-foot-bottom{border-top:1px solid #13243F}
+.cr-foot-bottom-in{max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;font-size:13px;color:#9EA3C4}
+.cr-foot-bottom-in a{color:#C3C6DE;text-underline-offset:3px;transition:color .15s ease}
+.cr-foot-bottom-in a:hover{color:#EE7F0C}
+@media (max-width: 900px){.cr-foot-grid{grid-template-columns:1fr 1fr;gap:40px}.cr-foot-brand{grid-column:1/-1}}
+@media (max-width: 560px){.cr-foot-grid{grid-template-columns:1fr;padding:48px 24px 36px}.cr-foot-bottom-in{flex-direction:column;align-items:flex-start}}
 </style>
 <style>
 :root{color-scheme:dark}
@@ -664,15 +685,41 @@ a:focus-visible,button:focus-visible{outline:3px solid #EE7F0C;outline-offset:3p
 </div>
 </section>
 
-<footer style="border-top: 1px solid #13243F">
-<div style="max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; font-size: 15px; color: #9EA3C4">
-<img alt="Combat Rush Paintball" style="height: 72px; width: auto; display: block">
-<span>Rua Francisco Antônio da Silva, em frente ao nº 347 · Sertão do Maruim, São José - SC</span>
-<span><a href="https://wa.me/554884946737?text=Ol%C3%A1!%20Quero%20reservar%20paintball%20para%2010%20pessoas%2C%20pacote%20de%201h%20(100%20bolinhas).%20Total%20estimado%3A%20R%24%20520.%20Tem%20data%20dispon%C3%ADvel%3F" style="color: #C3C6DE; text-decoration: none">WhatsApp (48) 8494-6737</a> · <a href="https://instagram.com/combatrushpaintball" style="color: #C3C6DE; text-decoration: none">Instagram @combatrushpaintball</a></span>
+<footer class="cr-footer">
+<div class="cr-foot-grid">
+<div class="cr-foot-brand">
+<img alt="Combat Rush Paintball" style="height: 80px; width: auto; display: block">
+<p>Paintball em São José - SC para grupos de até 40 pessoas: aniversários, academias, crossfit e datas comemorativas.</p>
+<div class="cr-foot-social">
+<a href="https://wa.me/554884946737?text=Ol%C3%A1!%20Quero%20reservar%20paintball%20para%2010%20pessoas%2C%20pacote%20de%201h%20(100%20bolinhas).%20Total%20estimado%3A%20R%24%20520.%20Tem%20data%20dispon%C3%ADvel%3F" aria-label="WhatsApp da Combat Rush"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.95A9 9 0 1 1 7.95 19.35L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2L9 9.5z"/></svg></a>
+<a href="https://instagram.com/combatrushpaintball" aria-label="Instagram da Combat Rush"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
 </div>
-<div style="border-top: 1px solid #13243F">
-<div style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 13px; color: #9EA3C4">
-<span>© Combat Rush Paintball · São José - SC · <a href="/politica-de-privacidade.html" style="color: #C3C6DE; text-decoration: underline; text-underline-offset: 3px">Política de Privacidade</a> · <a href="#preferencias-cookies" style="color: #C3C6DE; text-decoration: underline; text-underline-offset: 3px">Preferências de cookies</a></span>
+</div>
+<nav aria-label="Rodapé">
+<p class="cr-foot-title">Navegue</p>
+<ul class="cr-foot-links cr-foot-nav">
+<li><a href="#teste">Teste</a></li>
+<li><a href="#equipamentos">Equipamentos</a></li>
+<li><a href="#precos">Preços</a></li>
+<li><a href="#eventos">Eventos</a></li>
+<li><a href="#depoimentos">Depoimentos</a></li>
+<li><a href="#local">Local</a></li>
+<li><a href="#medos">Medos frequentes</a></li>
+</ul>
+</nav>
+<div>
+<p class="cr-foot-title">Contato</p>
+<ul class="cr-foot-links cr-foot-contact">
+<li><a href="https://wa.me/554884946737?text=Ol%C3%A1!%20Quero%20reservar%20paintball%20para%2010%20pessoas%2C%20pacote%20de%201h%20(100%20bolinhas).%20Total%20estimado%3A%20R%24%20520.%20Tem%20data%20dispon%C3%ADvel%3F"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.95A9 9 0 1 1 7.95 19.35L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2L9 9.5z"/></svg><span>WhatsApp (48) 8494-6737</span></a></li>
+<li><a href="https://instagram.com/combatrushpaintball"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg><span>@combatrushpaintball</span></a></li>
+<li><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Francisco+Ant%C3%B4nio+da+Silva+347+Sert%C3%A3o+do+Maruim+S%C3%A3o+Jos%C3%A9+SC" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Francisco Antônio da Silva, em frente ao nº 347 · Sertão do Maruim, São José - SC</span></a></li>
+</ul>
+<a class="cr-btn cr-foot-cta" href="https://wa.me/554884946737?text=Ol%C3%A1!%20Quero%20reservar%20paintball%20para%2010%20pessoas%2C%20pacote%20de%201h%20(100%20bolinhas).%20Total%20estimado%3A%20R%24%20520.%20Tem%20data%20dispon%C3%ADvel%3F">Reservar pelo WhatsApp</a>
+</div>
+</div>
+<div class="cr-foot-bottom">
+<div class="cr-foot-bottom-in">
+<span>© Combat Rush Paintball · São José - SC · <a href="/politica-de-privacidade.html">Política de Privacidade</a> · <a href="#preferencias-cookies">Preferências de cookies</a></span>
 <span>Site feito por <a href="https://www.nickgomes.com/" target="_blank" rel="noopener" style="color: #EE7F0C; font-weight: 700; text-decoration: none">nickgomes</a></span>
 </div>
 </div>
@@ -1182,15 +1229,41 @@ a:focus-visible,button:focus-visible{outline:3px solid #EE7F0C;outline-offset:3p
 </div>
 </section>
 
-<footer style="border-top: 1px solid #13243F">
-<div style="max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; font-size: 15px; color: #9EA3C4">
-<img src="{{A.b8aeb1fac9a1e2bc6f300dccd85a2141c}}" alt="Combat Rush Paintball" style="height: 72px; width: auto; display: block">
-<span>Rua Francisco Antônio da Silva, em frente ao nº 347 · Sertão do Maruim, São José - SC</span>
-<span><a href="{{waLink}}" style="color: #C3C6DE; text-decoration: none">WhatsApp (48) 8494-6737</a> · <a href="https://instagram.com/combatrushpaintball" style="color: #C3C6DE; text-decoration: none">Instagram @combatrushpaintball</a></span>
+<footer class="cr-footer">
+<div class="cr-foot-grid">
+<div class="cr-foot-brand">
+<img src="{{A.b8aeb1fac9a1e2bc6f300dccd85a2141c}}" alt="Combat Rush Paintball" style="height: 80px; width: auto; display: block">
+<p>Paintball em São José - SC para grupos de até 40 pessoas: aniversários, academias, crossfit e datas comemorativas.</p>
+<div class="cr-foot-social">
+<a href="{{waLink}}" aria-label="WhatsApp da Combat Rush"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.95A9 9 0 1 1 7.95 19.35L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2L9 9.5z"/></svg></a>
+<a href="https://instagram.com/combatrushpaintball" aria-label="Instagram da Combat Rush"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
 </div>
-<div style="border-top: 1px solid #13243F">
-<div style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 13px; color: #9EA3C4">
-<span>© Combat Rush Paintball · São José - SC · <a href="/politica-de-privacidade.html" style="color: #C3C6DE; text-decoration: underline; text-underline-offset: 3px">Política de Privacidade</a> · <a href="#preferencias-cookies" style="color: #C3C6DE; text-decoration: underline; text-underline-offset: 3px">Preferências de cookies</a></span>
+</div>
+<nav aria-label="Rodapé">
+<p class="cr-foot-title">Navegue</p>
+<ul class="cr-foot-links cr-foot-nav">
+<li><a href="#teste">Teste</a></li>
+<li><a href="#equipamentos">Equipamentos</a></li>
+<li><a href="#precos">Preços</a></li>
+<li><a href="#eventos">Eventos</a></li>
+<li><a href="#depoimentos">Depoimentos</a></li>
+<li><a href="#local">Local</a></li>
+<li><a href="#medos">Medos frequentes</a></li>
+</ul>
+</nav>
+<div>
+<p class="cr-foot-title">Contato</p>
+<ul class="cr-foot-links cr-foot-contact">
+<li><a href="{{waLink}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.95A9 9 0 1 1 7.95 19.35L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2L9 9.5z"/></svg><span>WhatsApp (48) 8494-6737</span></a></li>
+<li><a href="https://instagram.com/combatrushpaintball"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg><span>@combatrushpaintball</span></a></li>
+<li><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Francisco+Ant%C3%B4nio+da+Silva+347+Sert%C3%A3o+do+Maruim+S%C3%A3o+Jos%C3%A9+SC" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rua Francisco Antônio da Silva, em frente ao nº 347 · Sertão do Maruim, São José - SC</span></a></li>
+</ul>
+<a class="cr-btn cr-foot-cta" href="{{waLink}}">Reservar pelo WhatsApp</a>
+</div>
+</div>
+<div class="cr-foot-bottom">
+<div class="cr-foot-bottom-in">
+<span>© Combat Rush Paintball · São José - SC · <a href="/politica-de-privacidade.html">Política de Privacidade</a> · <a href="#preferencias-cookies">Preferências de cookies</a></span>
 <span>Site feito por <a href="https://www.nickgomes.com/" target="_blank" rel="noopener" style="color: {{accent}}; font-weight: 700; text-decoration: none">nickgomes</a></span>
 </div>
 </div>
